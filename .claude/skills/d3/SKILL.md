@@ -325,7 +325,46 @@ Map answers explicitly before semantic matching:
 
 ## Workflow
 
-**0. Junior Designer Mode — Always start here for new tasks.**
+**0.0 Template Library Check — Do this before anything else.**
+
+Before starting ANY design task, check if `beautiful-html-templates/` exists in the current project directory:
+
+```bash
+if [ ! -d "beautiful-html-templates/templates" ]; then
+  echo "beautiful-html-templates 未安装，正在自动安装..."
+  git clone --depth 1 https://github.com/zarazhangrui/beautiful-html-templates.git beautiful-html-templates
+  echo "✅ 模板库已安装。"
+fi
+```
+
+If the clone fails (no git, network error), tell the user:
+> beautiful-html-templates 未安装且自动安装失败。请手动克隆：
+> `git clone https://github.com/zarazhangrui/beautiful-html-templates.git beautiful-html-templates`
+
+Do NOT skip this check. Templates are required for all HTML design work.
+
+**0.1 Template Selection — Mandatory for all HTML/PPT tasks.**
+
+Every time you generate an HTML page or slide deck, the user MUST choose a visual template first. No exceptions.
+
+Template source: `beautiful-html-templates/templates/`
+
+Steps:
+1. List available templates by scanning the directory: `ls beautiful-html-templates/templates/`
+2. Present 3-4 recommended options to the user via `AskUserQuestion`, matching the task's tone and purpose
+3. Include a link to the full template gallery for browsing: https://github.com/zarazhangrui/beautiful-html-templates/tree/main/templates
+4. Wait for user selection before writing any HTML
+
+Template matching guidance:
+- Landing pages → clean, minimal, professional templates
+- Slide decks → bold typography, strong hierarchy templates
+- Social media posts → visually expressive, pattern-rich templates
+- UI mockups → neutral, component-friendly templates
+- Interactive prototypes → flexible, low-visual-weight templates
+
+If the user says "skip" or "use default", pick the most suitable template yourself and state which one you chose. But always present options first.
+
+**0.2 Junior Designer Mode — Always start here for new tasks.**
 
 Before writing any real UI code, write an execution-plan comment at the top of the HTML:
 
@@ -580,13 +619,12 @@ Let user review results, make adjustments per feedback.
 These rules apply ONLY when the task is `social-media-post`:
 
 **Template System:**
-- Browse `beautiful-html-templates/templates/` for available templates
+- Follow the general template selection rules in Workflow step 0.1
 - Match page type to template temperament:
   - Information/explanation pages → structured, stable text area templates
   - Tool introduction pages → product-showcase / data-card / grid templates
   - Step-by-step tutorial pages → large titles, strong numbering, high-contrast templates
   - Cover pages → visually impactful, more white space templates
-- Present 2-3 options to user via `AskUserQuestion`, or recommend one with reasoning
 - **One template per post:** All pages must use the same template as the base. Different pages can adjust layout, but the visual system (colors, fonts, decorative elements) must come from one template.
 
 **No Code Blocks:** Page images must not contain code blocks. Express technical points with text descriptions + visual illustrations.

@@ -52,15 +52,19 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 
 然后描述你想做什么 / Then describe what you want to build:
 
-1. **提问** — Claude 会问你几个问题，明确需求
+1. **自动安装** — 首次使用时自动安装 HTML 模板库（如未安装）
+   **Auto-install** — HTML template library auto-installs on first use if missing
+2. **选模板** — 每次生成 HTML/PPT 前必须选择视觉模板
+   **Pick template** — You must choose a visual template before any HTML/PPT is generated
+3. **提问** — Claude 会问你几个问题，明确需求
    **Ask** — Claude asks clarifying questions to understand your task
-2. **路由** — 自动加载合适的参考资料和模板
+4. **路由** — 自动加载合适的参考资料和模板
    **Route** — Automatically loads appropriate references and templates
-3. **计划** — 呈现执行方案，等你批准
+5. **计划** — 呈现执行方案，等你批准
    **Plan** — Presents an execution plan for your approval
-4. **构建** — 逐步生成 HTML，每步可预览
+6. **构建** — 逐步生成 HTML，每步可预览
    **Build** — Generates HTML step by step with per-section previews
-5. **验证** — 自动检查并交付最终成果
+7. **验证** — 自动检查并交付最终成果
    **Verify** — Runs checks and delivers the final artifact
 
 ### 示例 / Examples
@@ -132,8 +136,9 @@ React/JSX templates: browser windows, iOS/Android frames, macOS windows, slide d
 
 ### HTML 视觉模板 / HTML Design Templates (30+)
 
-来自 [beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates) 的视觉模板，按气质分类：大字海报、编辑排版、网格系统、黑白简约、专业风格等。
-Visual templates from [beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates), organized by mood: bold posters, editorial layouts, grid systems, monochrome, professional, and more.
+来自 [beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates) 的视觉模板，按气质分类：大字海报、编辑排版、网格系统、黑白简约、专业风格等。首次使用时自动安装，也可手动浏览全部模板：
+Visual templates from [beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates), organized by mood: bold posters, editorial layouts, grid systems, monochrome, professional, and more. Auto-installs on first use. Browse all templates:
+https://github.com/zarazhangrui/beautiful-html-templates/tree/main/templates
 
 ---
 
