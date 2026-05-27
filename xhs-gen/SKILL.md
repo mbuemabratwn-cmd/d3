@@ -2,7 +2,7 @@
 name: xhs-gen
 version: 1.0.0
 description: |
-  ⚠️ DEPRECATED — This skill has been merged into cc-design. Use `/cc-design` instead.
+  ⚠️ DEPRECATED — This skill has been merged into d3. Use `/d3` instead.
   This file is kept for reference only.
   小红书 HTML 教程图生成器。把教程选题拆成一组小红书图文页，每页用 HTML 写成可截图的视觉页面，适合后续导出高清 PNG，用于小红书教程、AI 工具教程、Remotion 教程、AIGC 工作流教程。
 allowed-tools:
@@ -15,7 +15,7 @@ allowed-tools:
 
 ---
 
-> **⚠️ DEPRECATED:** This skill has been merged into `/cc-design`. Use `/cc-design` for all design tasks including social media post generation. This file is retained for reference only.
+> **⚠️ DEPRECATED:** This skill has been merged into `/d3`. Use `/d3` for all design tasks including social media post generation. This file is retained for reference only.
 
 # Skill：小红书 HTML 教程图生成
 

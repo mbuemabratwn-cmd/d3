@@ -2,61 +2,50 @@
 
 Claude Code 高保真 HTML 设计技能 / High-fidelity HTML design skill for Claude Code.
 
-一个命令生成落地页、幻灯片、交互原型、社交媒体帖子图 / Generate landing pages, slide decks, interactive prototypes, and social media post images — all from `/cc-design`.
+一个命令生成落地页、幻灯片、交互原型、社交媒体帖子图 / Generate landing pages, slide decks, interactive prototypes, and social media post images — all from `/d3`.
 
 ---
 
-## 功能亮点 / Features
+## 快速安装 / Quick Install
 
-- **通用 HTML 设计** — 落地页、UI 模拟、动画、幻灯片、交互原型
-- **General HTML design** — landing pages, UI mockups, animations, presentations, interactive prototypes
-- **社交媒体帖子图** — 小红书教程卡片、Instagram 轮播图，支持多种比例
-- **Social media posts** — Xiaohongshu tutorial cards, Instagram carousels, flexible aspect ratios
-- **模板系统** — 30+ 内置模板，按气质自动匹配
-- **Template system** — 30+ built-in templates, matched by mood and purpose
-- **反 AI 味规则** — 强制设计质量标准，杜绝千篇一律的 AI 输出
-- **Anti-AI-slop rules** — enforced design quality that prevents generic AI output
-- **智能路由** — 自动加载适合当前任务的参考资料和模板
-- **Smart routing** — automatically loads the right references and templates for your task
-- **内置验证** — 交付前自动进行结构、视觉、设计质量检查
-- **Built-in verification** — structural, visual, and design quality checks before delivery
-
----
-
-## 安装 / Install
-
-一键安装 / One command:
+### 方式一：终端一键安装 / Option 1: One command
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
+```
+
+### 方式二：让 Claude Code 帮你装 / Option 2: Let Claude Code install it for you
+
+复制下面这段话，粘贴到 Claude Code 里发送 / Copy the prompt below and paste it into Claude Code:
+
+```
+请帮我安装 cc-design 技能。执行以下步骤：
+
+1. 运行这个命令安装：
+   curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
+
+2. 安装完成后，读取 .claude/skills/d3.md 确认技能文件已就位。
+
+3. 告诉我安装结果和使用方法。
 ```
 
 安装内容 / This installs:
 
 | 内容 | 说明 |
 |------|------|
-| `.claude/skills/cc-design.md` | 技能主文件 / Main skill file |
-| `.claude/skills/cc-design-references/` | 60+ 设计参考文档 / 60+ design reference docs |
-| `.claude/skills/cc-design-templates/` | 13 个组件模板 (React/JSX) / 13 component templates |
+| `.claude/skills/d3.md` | 技能主文件 / Main skill file |
+| `.claude/skills/d3-references/` | 60+ 设计参考文档 / 60+ design reference docs |
+| `.claude/skills/d3-templates/` | 13 个组件模板 (React/JSX) / 13 component templates |
 | `beautiful-html-templates/templates/` | 30+ HTML 视觉模板 / 30+ HTML visual templates |
-
-### 手动安装 / Manual Install
-
-```bash
-mkdir -p .claude/skills
-# 把 cc-design.md 和 references/templates 目录复制到 .claude/skills/
-# Copy cc-design.md and reference/template directories to .claude/skills/
-git clone https://github.com/zarazhangrui/beautiful-html-templates.git beautiful-html-templates
-```
 
 ---
 
 ## 使用方法 / Usage
 
-打开 Claude Code，输入 / Open Claude Code and type:
+安装后打开 Claude Code，输入 / After install, open Claude Code and type:
 
 ```
-/cc-design
+/d3
 ```
 
 然后描述你想做什么 / Then describe what you want to build:
@@ -75,20 +64,37 @@ git clone https://github.com/zarazhangrui/beautiful-html-templates.git beautiful
 ### 示例 / Examples
 
 ```
-/cc-design 做一个 SaaS 产品的落地页，Stripe 风格
+/d3 做一个 SaaS 产品的落地页，Stripe 风格
 ```
 
 ```
-/cc-design 做一组 5 页的小红书 CSS 动画教程
+/d3 做一组 5 页的小红书 CSS 动画教程
 ```
 
 ```
-/cc-design 设计一个产品路演的幻灯片
+/d3 设计一个产品路演的幻灯片
 ```
 
 ```
-/cc-design 做一个 CI/CD 流程的交互式说明图
+/d3 做一个 CI/CD 流程的交互式说明图
 ```
+
+---
+
+## 功能亮点 / Features
+
+- **通用 HTML 设计** — 落地页、UI 模拟、动画、幻灯片、交互原型
+- **General HTML design** — landing pages, UI mockups, animations, presentations, interactive prototypes
+- **社交媒体帖子图** — 小红书教程卡片、Instagram 轮播图，支持多种比例
+- **Social media posts** — Xiaohongshu tutorial cards, Instagram carousels, flexible aspect ratios
+- **模板系统** — 30+ 内置模板，按气质自动匹配
+- **Template system** — 30+ built-in templates, matched by mood and purpose
+- **反 AI 味规则** — 强制设计质量标准，杜绝千篇一律的 AI 输出
+- **Anti-AI-slop rules** — enforced design quality that prevents generic AI output
+- **智能路由** — 自动加载适合当前任务的参考资料和模板
+- **Smart routing** — automatically loads the right references and templates for your task
+- **内置验证** — 交付前自动进行结构、视觉、设计质量检查
+- **Built-in verification** — structural, visual, and design quality checks before delivery
 
 ---
 

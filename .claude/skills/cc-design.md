@@ -1,5 +1,5 @@
 ---
-name: cc-design
+name: d3
 description: >
   High-fidelity HTML design and prototype creation. Use this skill whenever the user asks to
   design, prototype, mock up, or build visual artifacts in HTML — including slide decks,
@@ -780,9 +780,9 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 ```
 
 This installs:
-- The cc-design skill to `.claude/skills/cc-design.md`
-- All reference files to `.claude/skills/cc-design-references/`
-- All component templates to `.claude/skills/cc-design-templates/`
+- The cc-design skill to `.claude/skills/d3.md`
+- All reference files to `.claude/skills/d3-references/`
+- All component templates to `.claude/skills/d3-templates/`
 - The beautiful-html-templates library to `beautiful-html-templates/templates/`
 
 ### Manual Install
@@ -792,7 +792,7 @@ This installs:
 mkdir -p .claude/skills
 ```
 
-2. Copy `cc-design.md` to `.claude/skills/cc-design.md`
+2. Copy `cc-design.md` to `.claude/skills/d3.md`
 
 3. Copy the `cc-design-references/` and `cc-design-templates/` directories to `.claude/skills/`
 
@@ -801,4 +801,4 @@ mkdir -p .claude/skills
 git clone https://github.com/mbuemabratwn-cmd/d3/beautiful-html-templates.git
 ```
 
-5. Verify installation — in Claude Code, type `/cc-design` and confirm the skill loads.
+5. Verify installation — in Claude Code, type `/d3` and confirm the skill loads.
