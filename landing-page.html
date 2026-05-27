@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cc-design — Claude Code Design Skill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --ink: #1a1a1a;
+    --ink-secondary: #6b6b6b;
+    --ink-tertiary: #999999;
+    --accent: #2563eb;
+    --accent-light: #eff4ff;
+    --border: #e5e5e3;
+    --code-bg: #f4f4f2;
+    --radius: 8px;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 120px 0 80px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 code {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 20px;
+    color: var(--ink-secondary);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: #333; }
+
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover { border-color: #ccc; }
+
+  /* Code block */
+  .install-code {
+    background: var(--ink);
+    color: #e0e0e0;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto 16px;
+    text-align: left;
+    overflow-x: auto;
+    position: relative;
+  }
+
+  .install-code .prompt { color: #888; }
+  .install-code .cmd { color: #a5d6ff; }
+
+  .install-hint {
+    font-size: 13px;
+    color: var(--ink-tertiary);
+    margin-bottom: 40px;
+  }
+
+  /* Section */
+  section { padding: 80px 0; }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  section > .container > p {
+    font-size: 17px;
+    color: var(--ink-secondary);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  /* Features grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+
+  .feature-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+    color: var(--ink-secondary);
+    line-height: 1.55;
+  }
+
+  /* Templates preview */
+  .templates-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .template-card {
+    aspect-ratio: 3/4;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    background: var(--surface);
+  }
+
+  .template-card .template-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .template-card .template-bar {
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .template-card .template-line {
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+
+  .template-card .template-line.wide { width: 80%; }
+  .template-card .template-line.medium { width: 60%; }
+  .template-card .template-line.short { width: 40%; }
+
+  .template-card .template-label {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Color variants */
+  .tpl-bold .template-bar { background: #1a1a1a; }
+  .tpl-bold .template-line { background: #e5e5e3; }
+  .tpl-bold .template-line:first-of-type { background: #1a1a1a; height: 14px; width: 70%; margin-bottom: 12px; }
+
+  .tpl-editorial .template-bar { background: #c27558; }
+  .tpl-editorial .template-line { background: #f0ebe4; }
+  .tpl-editorial .template-line:first-of-type { background: #1a1a1a; height: 12px; width: 50%; margin-bottom: 12px; }
+
+  .tpl-grid .template-bar { background: #2563eb; }
+  .tpl-grid .template-line { background: #e8edf5; }
+  .tpl-grid .template-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 16px; }
+  .tpl-grid .template-cell { background: #f0f4ff; border-radius: 4px; }
+
+  .tpl-mono .template-bar { background: #1a1a1a; }
+  .tpl-mono .template-line { background: #d4d4d4; }
+
+  /* Platforms */
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .platform-card .ratio {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .platform-card .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .platform-card .dims {
+    font-size: 12px;
+    color: var(--ink-tertiary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* How it works */
+  .steps {
+    display: flex;
+    gap: 32px;
+    counter-reset: step;
+  }
+
+  .step {
+    flex: 1;
+    counter-increment: step;
+    position: relative;
+  }
+
+  .step::before {
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--ink-secondary);
+    line-height: 1.55;
+  }
+
+  /* Footer */
+  footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 14px;
+    color: var(--ink-tertiary);
+  }
+
+  footer a {
+    color: var(--ink-secondary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  footer a:hover { color: var(--ink); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .templates-grid { grid-template-columns: repeat(2, 1fr); }
+    .platforms { grid-template-columns: repeat(2, 1fr); }
+    .steps { flex-direction: column; gap: 24px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">Claude Code Skill</div>
+    <h1><code>/cc-design</code></h1>
+    <p>High-fidelity HTML design for Claude Code. Landing pages, slide decks, social media posts, interactive prototypes — all from a single command.</p>
+    <div class="install-code">
+      <span class="prompt">$ </span><span class="cmd">curl -fsSL https://raw.githubusercontent.com/org/repo/main/install.sh | bash</span>
+    </div>
+    <p class="install-hint">One command installs the skill, 60+ references, and 30+ templates.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/org/repo" class="btn btn-primary">View on GitHub</a>
+      <a href="#features" class="btn btn-secondary">Learn more</a>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">Capabilities</div>
+    <h2>Everything you need to design with Claude</h2>
+    <p>From quick mockups to production-quality design artifacts, cc-design handles the full workflow.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>General Design</h3>
+        <p>Landing pages, UI mockups, animations, slide decks, interactive prototypes, design systems.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Social Media Posts</h3>
+        <p>Xiaohongshu tutorial cards, Instagram carousels. Flexible aspect ratios with template-based workflow.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Smart Routing</h3>
+        <p>Automatically loads the right references, templates, and checkpoints for your specific task.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Anti-Slop Rules</h3>
+        <p>Enforced design quality that prevents generic AI output. No aggressive gradients, no emoji decorations.</p>
+      </div>
+      <div class="feature-card">
+        <h3>30+ Templates</h3>
+        <p>HTML design templates matched by mood and purpose. Bold posters, editorial layouts, grid systems, and more.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Built-in Verification</h3>
+        <p>Structural, visual, and design excellence checks before every delivery. Screenshots verified, not assumed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Templates -->
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Templates</div>
+    <h2>Start from a template, not from scratch</h2>
+    <p>30+ visual templates from beautiful-html-templates, organized by mood and purpose.</p>
+    <div class="templates-grid">
+      <div class="template-card tpl-bold">
+        <div class="template-inner">
+          <div class="template-bar"></div>
+          <div class="template-line"></div>
+          <div class="template-line wide"></div>
+          <div class="template-line medium"></div>
+          <div class="template-label">Bold Poster</div>
+        </div>
+      </div>
+      <div class="template-card tpl-editorial">
+        <div class="template-inner">
+          <div class="template-bar"></div>
+          <div class="template-line"></div>
+          <div class="template-line wide"></div>
+          <div class="template-line short"></div>
+          <div class="template-label">Editorial</div>
+        </div>
+      </div>
+      <div class="template-card tpl-grid">
+        <div class="template-inner">
+          <div class="template-cell"></div>
+          <div class="template-cell"></div>
+          <div class="template-cell"></div>
+          <div class="template-cell"></div>
+          <div class="template-label">Neo Grid</div>
+        </div>
+      </div>
+      <div class="template-card tpl-mono">
+        <div class="template-inner">
+          <div class="template-bar"></div>
+          <div class="template-line"></div>
+          <div class="template-line wide"></div>
+          <div class="template-line medium"></div>
+          <div class="template-label">Monochrome</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Platforms -->
+<section>
+  <div class="container">
+    <div class="section-label">Platforms</div>
+    <h2>Every aspect ratio, one skill</h2>
+    <p>Choose your platform. cc-design adapts the canvas, export specs, and workflow.</p>
+    <div class="platforms">
+      <div class="platform-card">
+        <div class="ratio">3:4</div>
+        <div class="name">Xiaohongshu</div>
+        <div class="dims">900 × 1200</div>
+      </div>
+      <div class="platform-card">
+        <div class="ratio">1:1</div>
+        <div class="name">Instagram</div>
+        <div class="dims">1080 × 1080</div>
+      </div>
+      <div class="platform-card">
+        <div class="ratio">4:5</div>
+        <div class="name">Instagram Feed</div>
+        <div class="dims">1080 × 1350</div>
+      </div>
+      <div class="platform-card">
+        <div class="ratio">∞</div>
+        <div class="name">Custom</div>
+        <div class="dims">Any size</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Workflow</div>
+    <h2>How it works</h2>
+    <p>From idea to delivered artifact in a structured, repeatable process.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Describe</h3>
+        <p>Tell Claude what you want to build. A landing page, a slide deck, a set of social media posts.</p>
+      </div>
+      <div class="step">
+        <h3>Plan</h3>
+        <p>Claude asks clarifying questions, routes to the right references, and presents an execution plan.</p>
+      </div>
+      <div class="step">
+        <h3>Build</h3>
+        <p>HTML is generated step by step with per-section previews. You approve each stage before continuing.</p>
+      </div>
+      <div class="step">
+        <h3>Verify</h3>
+        <p>Structural, visual, and design quality checks run automatically before delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>Built for <a href="https://claude.ai/code">Claude Code</a>. Templates from <a href="https://github.com/zarazhangrui/beautiful-html-templates">beautiful-html-templates</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

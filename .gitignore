@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+
+# Generated output
+*.png
+
+# Personal / project work (not part of the skill)
+beautiful-html-templates/
+cc-design-master/
+VibeMotion/
+avatars/
+结算凭证设计/
+*.docx
+resume.html
+resume_to_docx.py
+logo.svg
+Duiwei LOGO.svg
+duiwei-vi-manual.html
+export-pdf.py
+skills-lock.json
+.agents/
+
+# Claude Code internal
+.claude/settings*
