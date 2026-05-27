@@ -103,6 +103,15 @@ done
 mkdir -p "${SKILL_DIR}/references/case-studies"
 curl -fsSL "${BASE_URL}/.claude/skills/d3/references/case-studies/README.md" -o "${SKILL_DIR}/references/case-studies/README.md" 2>/dev/null || true
 
+# Download update skill
+echo "Downloading update skill..."
+mkdir -p "${SKILL_DIR}/../d3-update"
+curl -fsSL "${BASE_URL}/.claude/skills/d3-update/SKILL.md" -o "${SKILL_DIR}/../d3-update/SKILL.md" 2>/dev/null || true
+
+# Download HTML update skill
+mkdir -p "${SKILL_DIR}/../d3-update-html"
+curl -fsSL "${BASE_URL}/.claude/skills/d3-update-html/SKILL.md" -o "${SKILL_DIR}/../d3-update-html/SKILL.md" 2>/dev/null || true
+
 # Download template files
 echo "Downloading component templates..."
 TEMPLATES=(
@@ -149,7 +158,10 @@ echo "Files installed:"
 echo "  ${SKILL_DIR}/SKILL.md"
 echo "  ${SKILL_DIR}/references/  (reference docs)"
 echo "  ${SKILL_DIR}/templates/   (component templates)"
+echo "  ${SKILL_DIR}/../d3-update/SKILL.md  (update skill)"
+echo "  ${SKILL_DIR}/../d3-update-html/SKILL.md  (HTML template updater)"
 echo "  ${TEMPLATES_DIR}/templates/  (HTML design templates)"
 echo ""
 echo "Usage: Open Claude Code and type /d3 to start designing."
+echo "Update: /d3-update (skill) or /d3-update-html (templates)"
 echo ""

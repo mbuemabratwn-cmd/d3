@@ -24,7 +24,7 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 1. 运行这个命令安装：
    curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
 
-2. 安装完成后，读取 .claude/skills/d3.md 确认技能文件已就位。
+2. 安装完成后，读取 .claude/skills/d3/SKILL.md 确认技能文件已就位。
 
 3. 告诉我安装结果和使用方法。
 ```
@@ -33,9 +33,11 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 
 | 内容 | 说明 |
 |------|------|
-| `.claude/skills/d3.md` | 技能主文件 / Main skill file |
-| `.claude/skills/d3-references/` | 60+ 设计参考文档 / 60+ design reference docs |
-| `.claude/skills/d3-templates/` | 13 个组件模板 (React/JSX) / 13 component templates |
+| `.claude/skills/d3/SKILL.md` | 技能主文件 / Main skill file |
+| `.claude/skills/d3/references/` | 60+ 设计参考文档 / 60+ design reference docs |
+| `.claude/skills/d3/templates/` | 13 个组件模板 (React/JSX) / 13 component templates |
+| `.claude/skills/d3-update/SKILL.md` | `/d3-update` 更新技能 / Update the d3 skill |
+| `.claude/skills/d3-update-html/SKILL.md` | `/d3-update-html` 更新模板 / Update HTML templates |
 | `beautiful-html-templates/templates/` | 30+ HTML 视觉模板 / 30+ HTML visual templates |
 
 ---
@@ -77,6 +79,13 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 
 ```
 /d3 做一个 CI/CD 流程的交互式说明图
+```
+
+### 更新 / Updating
+
+```
+/d3-update      更新 d3 技能到最新版本
+/d3-update-html 更新 beautiful-html-templates 到最新版本
 ```
 
 ---
