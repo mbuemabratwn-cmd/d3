@@ -22,7 +22,7 @@ mkdir -p "${SKILL_DIR}/d3-templates"
 mkdir -p "${TEMPLATES_DIR}/templates"
 
 # Download skill file
-echo "Downloading cc-design.md..."
+echo "Downloading d3.md..."
 curl -fsSL "${BASE_URL}/.claude/skills/d3.md" -o "${SKILL_DIR}/d3.md"
 
 # Download reference files

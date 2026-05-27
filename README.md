@@ -1,4 +1,4 @@
-# cc-design
+# d3
 
 Claude Code 高保真 HTML 设计技能 / High-fidelity HTML design skill for Claude Code.
 
@@ -19,7 +19,7 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 复制下面这段话，粘贴到 Claude Code 里发送 / Copy the prompt below and paste it into Claude Code:
 
 ```
-请帮我安装 cc-design 技能。执行以下步骤：
+请帮我安装 d3 技能。执行以下步骤：
 
 1. 运行这个命令安装：
    curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
