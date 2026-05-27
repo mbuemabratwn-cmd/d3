@@ -2,13 +2,13 @@
 set -euo pipefail
 
 # d3 skill installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/<repo>/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
 
 REPO="${CC_DESIGN_REPO:-mbuemabratwn-cmd/d3}"
 BRANCH="${CC_DESIGN_BRANCH:-main}"
 BASE_URL="https://raw.githubusercontent.com/${REPO}/${BRANCH}"
 
-SKILL_DIR=".claude/skills"
+SKILL_DIR=".claude/skills/d3"
 TEMPLATES_DIR="beautiful-html-templates"
 
 echo "Installing d3 skill..."
@@ -17,13 +17,13 @@ echo "  Branch: ${BRANCH}"
 echo ""
 
 # Create directories
-mkdir -p "${SKILL_DIR}/d3-references"
-mkdir -p "${SKILL_DIR}/d3-templates"
+mkdir -p "${SKILL_DIR}/references"
+mkdir -p "${SKILL_DIR}/templates"
 mkdir -p "${TEMPLATES_DIR}/templates"
 
-# Download skill file
-echo "Downloading d3.md..."
-curl -fsSL "${BASE_URL}/.claude/skills/d3.md" -o "${SKILL_DIR}/d3.md"
+# Download SKILL.md
+echo "Downloading SKILL.md..."
+curl -fsSL "${BASE_URL}/.claude/skills/d3/SKILL.md" -o "${SKILL_DIR}/SKILL.md"
 
 # Download reference files
 echo "Downloading reference files..."
@@ -90,18 +90,18 @@ REFERENCES=(
 )
 
 for ref in "${REFERENCES[@]}"; do
-  curl -fsSL "${BASE_URL}/.claude/skills/d3-references/${ref}" -o "${SKILL_DIR}/d3-references/${ref}" 2>/dev/null || true
+  curl -fsSL "${BASE_URL}/.claude/skills/d3/references/${ref}" -o "${SKILL_DIR}/references/${ref}" 2>/dev/null || true
 done
 
 # Download anti-pattern references
-mkdir -p "${SKILL_DIR}/d3-references/anti-patterns"
+mkdir -p "${SKILL_DIR}/references/anti-patterns"
 for ref in color.md interaction.md layout.md typography.md; do
-  curl -fsSL "${BASE_URL}/.claude/skills/d3-references/anti-patterns/${ref}" -o "${SKILL_DIR}/d3-references/anti-patterns/${ref}" 2>/dev/null || true
+  curl -fsSL "${BASE_URL}/.claude/skills/d3/references/anti-patterns/${ref}" -o "${SKILL_DIR}/references/anti-patterns/${ref}" 2>/dev/null || true
 done
 
 # Download case studies
-mkdir -p "${SKILL_DIR}/d3-references/case-studies"
-curl -fsSL "${BASE_URL}/.claude/skills/d3-references/case-studies/README.md" -o "${SKILL_DIR}/d3-references/case-studies/README.md" 2>/dev/null || true
+mkdir -p "${SKILL_DIR}/references/case-studies"
+curl -fsSL "${BASE_URL}/.claude/skills/d3/references/case-studies/README.md" -o "${SKILL_DIR}/references/case-studies/README.md" 2>/dev/null || true
 
 # Download template files
 echo "Downloading component templates..."
@@ -122,7 +122,7 @@ TEMPLATES=(
 )
 
 for tpl in "${TEMPLATES[@]}"; do
-  curl -fsSL "${BASE_URL}/.claude/skills/d3-templates/${tpl}" -o "${SKILL_DIR}/d3-templates/${tpl}" 2>/dev/null || true
+  curl -fsSL "${BASE_URL}/.claude/skills/d3/templates/${tpl}" -o "${SKILL_DIR}/templates/${tpl}" 2>/dev/null || true
 done
 
 # Download beautiful-html-templates
@@ -146,10 +146,10 @@ echo ""
 echo "✅ d3 skill installed successfully!"
 echo ""
 echo "Files installed:"
-echo "  ${SKILL_DIR}/d3.md"
-echo "  ${SKILL_DIR}/d3-references/  (reference docs)"
-echo "  ${SKILL_DIR}/d3-templates/   (component templates)"
-echo "  ${TEMPLATES_DIR}/templates/          (HTML design templates)"
+echo "  ${SKILL_DIR}/SKILL.md"
+echo "  ${SKILL_DIR}/references/  (reference docs)"
+echo "  ${SKILL_DIR}/templates/   (component templates)"
+echo "  ${TEMPLATES_DIR}/templates/  (HTML design templates)"
 echo ""
 echo "Usage: Open Claude Code and type /d3 to start designing."
 echo ""

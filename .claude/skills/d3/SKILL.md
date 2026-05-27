@@ -39,8 +39,8 @@ bash hooks-lib/update-check.sh
 ```
 
 If output shows `UPGRADE_AVAILABLE <old> <new>`:
-- Briefly tell the user: `cc-design update available: <old> -> <new>`
-- Tell them to run: `npx skills update cc-design`
+- Briefly tell the user: `d3 update available: <old> -> <new>`
+- Tell them to re-run the install script to update
 - Continue the current design task. Do not block on upgrade.
 
 You are an expert designer working with the user as your manager. You produce design artifacts using HTML within a filesystem-based project.
@@ -780,25 +780,25 @@ curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh
 ```
 
 This installs:
-- The cc-design skill to `.claude/skills/d3.md`
-- All reference files to `.claude/skills/d3-references/`
-- All component templates to `.claude/skills/d3-templates/`
+- The d3 skill to `.claude/skills/d3/SKILL.md`
+- All reference files to `.claude/skills/d3/references/`
+- All component templates to `.claude/skills/d3/templates/`
 - The beautiful-html-templates library to `beautiful-html-templates/templates/`
 
 ### Manual Install
 
-1. Create the skills directory:
+1. Create the skill directory:
 ```bash
-mkdir -p .claude/skills
+mkdir -p .claude/skills/d3
 ```
 
-2. Copy `cc-design.md` to `.claude/skills/d3.md`
+2. Copy `SKILL.md` to `.claude/skills/d3/SKILL.md`
 
-3. Copy the `cc-design-references/` and `cc-design-templates/` directories to `.claude/skills/`
+3. Copy the `references/` and `templates/` directories into `.claude/skills/d3/`
 
 4. Clone the templates library:
 ```bash
-git clone https://github.com/mbuemabratwn-cmd/d3/beautiful-html-templates.git
+git clone https://github.com/zarazhangrui/beautiful-html-templates.git beautiful-html-templates
 ```
 
 5. Verify installation — in Claude Code, type `/d3` and confirm the skill loads.
