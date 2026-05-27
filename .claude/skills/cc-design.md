@@ -776,7 +776,7 @@ Put `[data-screen-label]` attributes on slide/screen elements. Use 1-indexed lab
 ### One-Click Install (Recommended)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<your-repo>/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
 ```
 
 This installs:
@@ -798,7 +798,7 @@ mkdir -p .claude/skills
 
 4. Clone the templates library:
 ```bash
-git clone https://github.com/<your-repo>/beautiful-html-templates.git
+git clone https://github.com/mbuemabratwn-cmd/d3/beautiful-html-templates.git
 ```
 
 5. Verify installation — in Claude Code, type `/cc-design` and confirm the skill loads.

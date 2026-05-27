@@ -4,7 +4,7 @@ set -euo pipefail
 # cc-design skill installer
 # Usage: curl -fsSL https://raw.githubusercontent.com/<repo>/main/install.sh | bash
 
-REPO="${CC_DESIGN_REPO:-your-org/cc-design}"
+REPO="${CC_DESIGN_REPO:-mbuemabratwn-cmd/d3}"
 BRANCH="${CC_DESIGN_BRANCH:-main}"
 BASE_URL="https://raw.githubusercontent.com/${REPO}/${BRANCH}"
 

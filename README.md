@@ -28,7 +28,7 @@ Claude Code 高保真 HTML 设计技能 / High-fidelity HTML design skill for Cl
 一键安装 / One command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<your-org>/<your-repo>/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mbuemabratwn-cmd/d3/main/install.sh | bash
 ```
 
 安装内容 / This installs:
