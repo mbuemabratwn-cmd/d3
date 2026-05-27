@@ -67,7 +67,9 @@ See `references/design-iron-law.md` for the full Iron Law definition. In short:
 
 ## Core Principles
 
-**P0: Fact Verification — Do This First, Every Time.**
+**P0: Language Default — 中文优先。** 除非用户明确要求使用其他语言，否则默认用中文回复和生成内容。
+
+**P0.1: Fact Verification — Do This First, Every Time.**
 
 Before stating anything as fact about a brand, product, price, release status, or spec — search first. This is non-negotiable.
 
@@ -589,11 +591,12 @@ These rules apply ONLY when the task is `social-media-post`:
 
 **No Code Blocks:** Page images must not contain code blocks. Express technical points with text descriptions + visual illustrations.
 
-**Mandatory Ending/Follow Page:** Last page must be a "follow me" page:
+**Ending/Follow Page (only when user requests it):** If the user asks for a follow page or ending page, the last page should be a "follow me" page:
 - Title: "关注我，继续看这个方向" (or localized equivalent)
 - Body: 3-4 content directions extending from the current post (specific, not generic)
 - Closing: one-line value proposition
 - Layout: centered, no images, page number format `0X / 0X`
+- Do NOT add this page by default — only when the user explicitly requests it.
 
 **Canvas Structure:** When the artboard aspect ratio differs from the browser viewport, use two-layer canvas:
 - Outer: browser-stage (`100vw × 100vh`, neutral background)
